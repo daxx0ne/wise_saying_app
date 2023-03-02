@@ -5,6 +5,7 @@ public class main { // Applicaiton이 일하도록 함
         Scanner sc = new Scanner(System.in);
 
         new Application(sc).run(); // 기본적으로 Scanner를 가지고 있는 Applicaiton
+
         sc.close();
     }
 }
