@@ -1,4 +1,4 @@
-package com.example;
+package com.example.wiseSaying.entity;
 public class WiseSaying { // 등록된 명언과 작가이름을 저장
     private long id; // 등록 번호
     private String content; // 명언

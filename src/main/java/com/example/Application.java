@@ -1,6 +1,8 @@
 package com.example;
+import com.example.wiseSaying.entity.WiseSaying;
+
 import java.util.*;
-import io.micronaut.runtime.Micronaut;
+
 
 public class Application {
     public final Scanner sc;
@@ -20,6 +22,7 @@ public class Application {
             // trim() : 혹시 있을지 모를 좌우공백 제거된 버전으로 주세요!
             if(command.equals("종료")) { // 종료가 입력되면 프로그램 종료
                 break;
+
             }
             else if (command.equals("등록")){
                 long id = lastWiseSayingId + 1;
@@ -40,7 +43,6 @@ public class Application {
 
                 for (int i = wiseSayings.size() - 1; i >= 0; i--){ // 입력의 역순으로 출력 (목록의 1번부터)
                     WiseSaying wiseSaying = wiseSayings.get(i);
-
                     // '목록번호  작가이름  명언' 을 출력
                     System.out.printf("%d / %s / %s\n", wiseSaying.getId(), wiseSaying.getAuthorName(), wiseSaying.getContent());
                 }
