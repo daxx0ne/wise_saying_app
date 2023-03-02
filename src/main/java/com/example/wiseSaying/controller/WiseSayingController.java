@@ -16,6 +16,16 @@ public class WiseSayingController {
         wiseSayings = new ArrayList<>();
     }
 
+    private WiseSaying findById(int id) {
+        for (WiseSaying wiseSaying : wiseSayings) {
+            if (wiseSaying.getId() == id) {
+                return wiseSaying;
+            }
+        }
+
+        return null;
+    }
+
     public void write() { // #2~4 등록하기
         long id = lastWiseSayingId + 1; // 등록할 때마다 번호 증가
         System.out.print("명언 : "); // 명언과 작가 이름을 입력받기
@@ -52,17 +62,41 @@ public class WiseSayingController {
         // 입력한 id와 일치하는 명언 객체를 찾음
         WiseSaying wiseSaying = findById(id);
         // 찾은 명언 객체를 리스트에서 제거함
+        if (wiseSaying == null) { // #7 존재하지 않는 명언삭제에 대한 예외처리
+            System.out.printf("%d번 명언은 존재하지 않습니다.\n", id);
+            return;
+        }
+        // 찾은 명언객체를 리스트에서 제거
         wiseSayings.remove(wiseSaying);
-
         System.out.printf("%d번 명언이 삭제되었습니다.\n", id);
     }
 
-    private WiseSaying findById(int id) {
-        for (WiseSaying wiseSaying : wiseSayings) {
-            if (wiseSaying.getId() == id) {
-                return wiseSaying;
-            }
+    public void modify(Rq rq) {
+        int id = rq.getIntParam("id", -1);
+
+        if (id == -1) {
+            System.out.println("id(정수)를 입력해주세요.");
+            return;
         }
-        return null;
+
+        WiseSaying wiseSaying = findById(id); // 입력한 id와 일치하는 명언 객체를 찾음
+
+        if (wiseSaying == null) { // #7 존재하지 않는 명언삭제에 대한 예외처리
+            System.out.printf("%d번 명언은 존재하지 않습니다.\n", id);
+            return;
+        }
+        // #8 명언 수정하기
+        System.out.printf("명언(기존) : %s\n", wiseSaying.getContent());
+        System.out.print("명언 : ");
+        String content = Container.getScanner().nextLine().trim();
+
+        System.out.printf("작가(기존) : %s\n", wiseSaying.getAuthorName());
+        System.out.print("작가 : ");
+        String authorName = Container.getScanner().nextLine().trim();
+
+        wiseSaying.setContent(content);
+        wiseSaying.setAuthorName(authorName);
+
+        System.out.printf("%d번 명언이 수정되었습니다.\n", id);
     }
 }

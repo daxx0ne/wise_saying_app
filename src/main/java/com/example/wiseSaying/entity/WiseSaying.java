@@ -21,4 +21,11 @@ public class WiseSaying { // 등록된 명언과 작가이름을 저장
     public String getAuthorName() {
         return authorName;
     }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
 }
