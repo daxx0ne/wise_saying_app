@@ -16,18 +16,19 @@ public class Application {
             String command = Container.getScanner().nextLine().trim();
             Rq rq = new Rq(command);
 
-            if(command.equals("종료")) {
-                systemController.exit();
-                break;
-            }
-            else if (command.equals("등록")){
-                wiseSayingController.write();
-            }
-            else if (command.equals("목록")) {
-                wiseSayingController.list();
-            }
-            else if (command.startsWith("삭제")) {
-                wiseSayingController.remove(rq);
+            switch (rq.getActionCode()) {
+                case "종료":
+                    systemController.exit();
+                    return;
+                case "등록":
+                    wiseSayingController.write();
+                    break;
+                case "목록":
+                    wiseSayingController.list();
+                    break;
+                case "삭제":
+                    wiseSayingController.remove(rq);
+                    break;
             }
         }
     }
