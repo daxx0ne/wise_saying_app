@@ -12,9 +12,9 @@ public class Application {
         WiseSayingController wiseSayingController = new WiseSayingController();
 
         while(true){
-            System.out.print("명령) ");
+            System.out.print("명령) "); // 입력 받기
             String command = Container.getScanner().nextLine().trim();
-            // trim() : 혹시 있을지 모를 좌우공백 제거된 버전으로 주세요!
+            Rq rq = new Rq(command);
 
             if(command.equals("종료")) {
                 systemController.exit();
@@ -25,6 +25,9 @@ public class Application {
             }
             else if (command.equals("목록")) {
                 wiseSayingController.list();
+            }
+            else if (command.startsWith("삭제")) {
+                wiseSayingController.remove(rq);
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.example.wiseSaying.controller;
 
+import com.example.Rq;
 import com.example.wiseSaying.entity.WiseSaying;
 import com.example.Container;
 
@@ -34,5 +35,19 @@ public class WiseSayingController {
             // '목록번호  작가이름  명언' 을 출력
             System.out.printf("%d / %s / %s\n", wiseSaying.getId(), wiseSaying.getAuthorName(), wiseSaying.getContent());
         }
+    }
+
+    public void remove(Rq rq) { // #6 명언 삭제하기
+        int id = -1;
+
+        try { // 숫자 유효성 체크하기
+            id = Integer.parseInt(rq.getParam("id"));
+        }
+        catch (NumberFormatException e) {
+            System.out.printf("id(정수)를 입력해주세요.");
+            return;
+        }
+
+        System.out.printf("%d번 명언이 삭제되었습니다.\n", id);
     }
 }
