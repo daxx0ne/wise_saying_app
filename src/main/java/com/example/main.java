@@ -1,8 +1,10 @@
 package com.example;
-
+import java.util.*;
 public class main {
     public static void main(String[] args) {
-        System.out.println("== 명언 엡 ==");
-        System.out.println("명령) ");
+        Scanner sc = new Scanner(System.in);
+
+        new Application(sc).run();
+        sc.close();
     }
 }
