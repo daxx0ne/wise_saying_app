@@ -1,0 +1,7 @@
+micronaut:
+  application:
+    name: wise_saying_app
+netty:
+  default:
+    allocator:
+      max-order: 3
