@@ -1,16 +1,10 @@
-## Micronaut 3.8.6 Documentation
+# 명언 앱 만들기
 
-- [User Guide](https://docs.micronaut.io/3.8.6/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.8.6/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.8.6/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
+### 👀 기능설명
 
----
-
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
-
-## Feature http-client documentation
-
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
+##### 등록: 명언과 작가 이름을 등록할 수 있다.
+##### 목록: 등록되있는 명언과  작가 이름의 리스트를 확인할 수 있다.
+##### 삭제: 원하는 번호를 입력하여 명언을 삭제할 수 있다.
+##### 수정: 원하는 번호를 입력하여 명언 내용과, 작가 이름을 수정할 수 있다.
+##### 종료: 명언 앱을 종료한다.
 
